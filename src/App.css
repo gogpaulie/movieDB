@@ -1,38 +1,133 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap');
+* {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+:root {
+  --primary-color: #22254b;
+  --secondary-color: #373b69;
+  --rating-green: rgb(32, 178, 98);
+  --rating-orange: rgb(221, 156, 35);
+  --rating-red: rgb(194, 44, 44);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  background-color: var(--primary-color);
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+header {
+  padding: 1rem;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: flex-end;
+  background-color: var(--secondary-color);
+}
+
+.form-group {
+  position: relative;
+}
+
+.search {
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 1.15;
+  margin: 0px;
+  overflow: visible;
+  appearance: none;
+  outline-offset: -2px;
+  box-sizing: inherit;
+  border-style: solid;
+  border-width: 0.125rem;
+  border-color: rgb(241, 243, 245);
+  border-radius: 9999px;
+  color: #fff;
+  background-color: var(--secondary-color);
+  transition: all 0.1s ease-in-out 0s;
+  padding: 0.75rem 1.5rem;
+}
+
+.search:focus {
+  outline: none;
+  background-color: var(--primary-color);
+}
+
+.search-button {
+  border: none;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  background-color: transparent;
+  cursor: pointer;
+  color: #fff;
+}
+
+.search-button:hover {
+  color: orangered;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.movie {
+  width: 300px;
+  margin: 1rem;
+  background-color: var(--secondary-color);
+  box-shadow: 0 4px 5pox rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+  border-radius: 3px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.movie img {
+  width: 100%;
+}
+
+.movie-info {
+  color: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem 1rem;
+  letter-spacing: 0.5px;
+}
+
+.movie-info h3 {
+  margin-top: 0;
+}
+
+.movie-info span {
+  background-color: var(--primary-color);
+  padding: 0.25rem 0.5rem;
+  border-radius: 3px;
+  font-weight: bold;
+}
+
+.movie-info span.green {
+  color: var(--rating-green);
+}
+.movie-info span.orange {
+  color: var(--rating-orange);
+}
+.movie-info span.red {
+  color: var(--rating-red);
+}
+
+.overview {
+  background-color: #fff;
+  padding: 2rem;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  max-height: 100%;
+  transform: translateY(101%);
+  transition: transform 0.3s ease-in;
+}
+
+.movie:hover .overview {
+  transform: translateY(0);
 }
